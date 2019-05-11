@@ -1,3 +1,4 @@
+let menuActive 
 class Dropdown {
   constructor(element) {
     
@@ -18,8 +19,18 @@ class Dropdown {
     
     // Toggle the ".dropdown-hidden" class off and on
    
-      document.querySelector('.dropdown-content').classList.toggle('dropdown-hidden');
-   
+      // document.querySelector('.dropdown-content').classList.toggle('dropdown-hidden');
+
+      if (!menuActive) {
+        document.querySelector('.dropdown-content').classList.toggle('dropdown-hidden');
+        TweenMax.to(".dropdown-content", .6, {left:0,});
+        menuActive = true;
+      }
+      else if (menuActive) {
+        TweenMax.to(".dropdown-content", .6, {left:-300,});
+        menuActive = false;
+        setTimeout(()=>{document.querySelector('.dropdown-content').classList.toggle('dropdown-hidden');}, 200)
+      }
   }
 }
 
