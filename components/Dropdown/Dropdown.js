@@ -1,4 +1,10 @@
-var menuActive = false;
+var menuActive = '';
+
+const secTion = document.querySelectorAll('.section');
+secTion[0].addEventListener('click', ()=>{document.querySelector('.dropdown-content').classList.add('dropdown-hidden')});
+secTion[1].addEventListener('click', ()=>{document.querySelector('.dropdown-content').classList.add('dropdown-hidden')});
+
+
 class Dropdown {
   constructor(element) {
     
@@ -22,14 +28,15 @@ class Dropdown {
       // document.querySelector('.dropdown-content').classList.toggle('dropdown-hidden');
       console.log(menuActive);
       if (!menuActive) {
-        document.querySelector('.dropdown-content').classList.toggle('dropdown-hidden');
-        TweenMax.to(".dropdown-content", .2, {top:0,});
+        document.querySelector('.dropdown-content').classList.remove('dropdown-hidden');
+        TweenMax.to(".dropdown-content", .2, {top:50,});
         menuActive = true;
       }
       else if (menuActive) {
         TweenMax.to(".dropdown-content", .2, {top:-225,});
         menuActive = false;
-        setTimeout(()=>{document.querySelector('.dropdown-content').classList.toggle('dropdown-hidden');}, 100)
+        document.querySelector('.dropdown-content').classList.add('dropdown-hidden');
+        // setTimeout(()=>{document.querySelector('.dropdown-content').classList.toggle('dropdown-hidden');}, 100)
       }
   }
 }
