@@ -1,4 +1,4 @@
-let menuActive 
+var menuActive = false;
 class Dropdown {
   constructor(element) {
     
@@ -20,16 +20,16 @@ class Dropdown {
     // Toggle the ".dropdown-hidden" class off and on
    
       // document.querySelector('.dropdown-content').classList.toggle('dropdown-hidden');
-
+      console.log(menuActive);
       if (!menuActive) {
         document.querySelector('.dropdown-content').classList.toggle('dropdown-hidden');
-        TweenMax.to(".dropdown-content", .6, {left:0,});
+        TweenMax.to(".dropdown-content", .2, {top:0,});
         menuActive = true;
       }
       else if (menuActive) {
-        TweenMax.to(".dropdown-content", .6, {left:-300,});
+        TweenMax.to(".dropdown-content", .2, {top:-225,});
         menuActive = false;
-        setTimeout(()=>{document.querySelector('.dropdown-content').classList.toggle('dropdown-hidden');}, 200)
+        setTimeout(()=>{document.querySelector('.dropdown-content').classList.toggle('dropdown-hidden');}, 100)
       }
   }
 }
