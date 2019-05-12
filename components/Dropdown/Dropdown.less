@@ -36,14 +36,34 @@
       background-color: @lambda-red;
     }
   }
-  .dropdown-hidden {
+  .dropdown-hidden { 
     display: none;
     opacity: 0;
     height: 0;
   }
+
+
 }
 
 
 
+.tabs-item-selected {
+  animation-duration: 2s;
+  animation-name:slidein;
+  overflow:hidden;
+}
 
+@keyframes slidein {
+  from {
+    margin-left:100%;
+    width:300%;
+    alpha:0;
+  }
+  
+  to {
+    margin-left:0%;
+    width:75%;
+    alpha:1;
+  }
+}
 
